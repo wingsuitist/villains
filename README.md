@@ -1,4 +1,4 @@
-# villains
+# Villains
 
 Angular 2 Tutorial using webpack, angular-cli and some other little differences.
 Sponsored by: www.letsboot.com/angular2
@@ -52,8 +52,11 @@ And src/app/app.component.ts
 Now go back to the browser window and you'll see the magic.
 If you're quick enough you'll see how the browser is already reloading when you press save in the editor.
 
-## general README from `ng new`
 ***
+***
+***
+
+## README from `ng new`
 
 This project was generated with [angular-cli](https://github.com/angular/angular-cli) version 1.0.0-beta.15.
 

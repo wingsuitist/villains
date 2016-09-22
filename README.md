@@ -15,35 +15,43 @@ We use mostly the shell and a code editor.
 
 ## 2. Generate the base for our app
 
-1. create villains app:
+### 1. create villains app:
+
 ```
 cd  ~/where-you-keep-your-code-projects/
 ng new villains --prefix vil
 cd villains
 ls
 ```
+
 This creates a new angular 2 app with the name villains and the prefix vil.
 This will need a moment as it installs the npm packages, and angular2 uses plenty of other packages.
+
 This prefix will be mostly used for your own components in the html templates, for example:
 
  `<vil-list></vil-list>`
- 
-2. run and look at your app
+
+### 2. run and look at your app
+
 ```
-ng serv
+ng serve
 ```
+
 This will need a moment the first time.
 It will transpile all the code, pack it and serve it with a minimal webserver.
 Now you can open the url in your browser: http://localhost:4200/
 This website automatically shows you changes, so let's try that by changing two files using your favorite editor:
 src/index.html
+
 ```
 ... from:
 <vil-root>Loading...</vil-root>
 ... to:
 <vil-root>Searching for Villains...</vil-root>
 ```
+
 And src/app/app.component.ts
+
 ```
 ... from:
   title = 'app works';

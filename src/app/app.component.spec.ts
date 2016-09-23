@@ -30,4 +30,11 @@ describe('App: Villains', () => {
     let compiled = fixture.debugElement.nativeElement;
     expect(compiled.querySelector('h1').textContent).toContain('Villains unite!');
   }));
+
+  it('should render villain name', async(() => {
+    let fixture = TestBed.createComponent(AppComponent);
+    fixture.detectChanges();
+    let compiled = fixture.debugElement.nativeElement;
+    expect(compiled.querySelector('h2').textContent).toContain('Captain Spaghetticoder profile.')
+  }));
 });

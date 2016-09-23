@@ -61,7 +61,7 @@ And src/app/app.component.ts
 Now go back to the browser window and you'll see the magic.
 If you're quick enough you'll see how the browser is already reloading when you press save in the editor.
 
-### 3 testing is important
+### 3. testing is important
 
 Run the ng tests, which where generated for your app:
 
@@ -71,6 +71,58 @@ ng test --watch false
 
 You'll see several tests fail due to the changes in the title.
 Try to edit `src/app/app.component.spec.ts` to make the tests work again.
+
+## 3. Let's create our first villain
+
+To fully benefit from thought through structure of Angular 2 you should stick to the [Style Guide](https://angular.io/docs/ts/latest/guide/style-guide.html#!#application-structure)
+
+### 1. Let's create the Villain class
+
+Add a class `Villain` with a number property `id` and a string property `name` in the file `src/app/shared/villain.model.ts`.
+
+.. link to file ...
+
+### 2. Make it available to your component
+
+Add the Villain class to the index.ts of the shared folder:
+
+```typescript
+export * from './villain.model';
+```
+
+Import it in the app.component.ts:
+
+```typescript
+import { Villain } from './shared';
+```
+
+### 3. Create the first villain
+
+Add the first villain as a property to your component:
+
+``` typescript
+villain : Villain = {
+  id: 23,
+  alias: 'Captain Spaghetticoder'
+};
+```
+
+### 4. Show the villain in your HTML
+
+```HTML
+<h2>{{villain.alias}} profile.</h2>
+<div>
+  <label>id: </label>
+  {{villain.id}}
+</div>
+<div>
+  <label>alias: </label>
+  {{villain.alias}}
+</div>
+```
+
+### 5. Add tests to your .specs.ts
+
 
 ***
 ***

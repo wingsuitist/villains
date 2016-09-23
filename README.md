@@ -84,6 +84,7 @@ Add a class `Villain` with a number property `id` and a string property `name` i
 export class Villain {
   id: number;
   alias: string;
+  power: string;
 }
 ```
 
@@ -109,6 +110,7 @@ Add the first villain as a property to your component:
 villain : Villain = {
   id: 23,
   alias: 'Captain Spaghetticoder'
+  power: 'Bug Creator'
 };
 ```
 

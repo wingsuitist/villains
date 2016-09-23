@@ -10,6 +10,7 @@ export class AppComponent {
   title = 'Villains unite!';
   villain : Villain = {
     id: 23,
-    alias: 'Captain Spaghetticoder'
+    alias: 'Captain Spaghetticoder',
+    power: 'Bug Creator'
   };
 }

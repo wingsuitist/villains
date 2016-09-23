@@ -61,6 +61,17 @@ And src/app/app.component.ts
 Now go back to the browser window and you'll see the magic.
 If you're quick enough you'll see how the browser is already reloading when you press save in the editor.
 
+### 3 testing is important
+
+Run the ng tests, which where generated for your app:
+
+```
+ng test --watch false
+```
+
+You'll see several tests fail due to the changes in the title.
+Try to edit `src/app/app.component.spec.ts` to make the tests work again.
+
 ***
 ***
 ***

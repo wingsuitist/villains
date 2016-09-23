@@ -137,9 +137,16 @@ villain : Villain = {
   <label>alias: </label>
   {{villain.alias}}
 </div>
+<div>
+  <label>power: </label>
+  {{villain.power}}
+</div>
 ```
 
 ### 5. Add tests to your .specs.ts
+
+## 4. Let's edit our Villain
+
 
 
 ***

@@ -2,10 +2,12 @@
 
 import { TestBed, async } from '@angular/core/testing';
 import { AppComponent } from './app.component';
+import { FormsModule } from '@angular/forms';
 
 describe('App: Villains', () => {
   beforeEach(() => {
     TestBed.configureTestingModule({
+      imports: [ FormsModule ],
       declarations: [
         AppComponent
       ],
@@ -36,5 +38,17 @@ describe('App: Villains', () => {
     fixture.detectChanges();
     let compiled = fixture.debugElement.nativeElement;
     expect(compiled.querySelector('h2').textContent).toContain('Captain Spaghetticoder profile.')
+  }));
+
+  it('should change alias in title when edited', async(()=>{
+    let fixture = TestBed.createComponent(AppComponent);
+    fixture.detectChanges();
+    let compiled = fixture.debugElement.nativeElement;
+    const alias = 'The Spaghetticoder';
+    const title = 'The Spaghetticoder profile.';
+    compiled.querySelector('input').value = alias;
+    compiled.querySelector('input').dispatchEvent(new UIEvent('input'));
+    fixture.detectChanges();
+    expect(compiled.querySelector('h2').textContent).toBe(title);
   }));
 });

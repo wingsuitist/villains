@@ -147,6 +147,38 @@ villain : Villain = {
 
 ## 4. Let's edit our Villain
 
+### 1. Add inputs
+
+Replace the regular output for power and alias with a two way binding:
+
+```HTML
+<input [(ngModel)]="Villain.alias" placeholder="alias" />
+```
+
+As the angular-cli already loaded the FormsModule this works out of the box and adds the two way binding.
+
+### 2. Test the inputs
+
+Now we have to write a test, that changes the alias of our villain and makes sure it's also added to the title h2.
+
+```typescript
+it('should change alias in title when edited', async(()=>{
+  let fixture = TestBed.createComponent(AppComponent);
+  fixture.detectChanges();
+  let compiled = fixture.debugElement.nativeElement;
+  const alias = 'The Spaghetticoder';
+  const title = 'The Spaghetticoder profile.';
+  compiled.querySelector('input').value = alias;
+  compiled.querySelector('input').dispatchEvent(new UIEvent('input'));
+  fixture.detectChanges();
+  expect(compiled.querySelector('h2').textContent).toBe(title);
+}));
+```
+
+There are more elegant ways to do that, but for this little example it fits.
+
+
+
 
 
 ***

@@ -7,6 +7,17 @@ Sponsored by: www.letsboot.com/angular2
 
 We use mostly the shell and a code editor.
 
+We created tags for certain steps:
+https://github.com/wingsuitist/villains/tree/v3.5.0
+
+You can clone the existing code, list the tags and jump to a certain step:
+
+```shell
+git clone git@github.com:wingsuitist/villains.git
+git tag -l
+git checkout tags/v2.3.0
+```
+
 ## 1. Install node and angular-cli
 
 1. [Install Node](https://nodejs.org/en/download/)

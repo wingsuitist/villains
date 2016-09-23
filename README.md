@@ -80,7 +80,12 @@ To fully benefit from thought through structure of Angular 2 you should stick to
 
 Add a class `Villain` with a number property `id` and a string property `name` in the file `src/app/shared/villain.model.ts`.
 
-.. link to file ...
+```typescript
+export class Villain {
+  id: number;
+  alias: string;
+}
+``
 
 ### 2. Make it available to your component
 

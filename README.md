@@ -85,7 +85,7 @@ export class Villain {
   id: number;
   alias: string;
 }
-``
+```
 
 ### 2. Make it available to your component
 

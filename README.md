@@ -64,9 +64,9 @@ src/index.html
 And src/app/app.component.ts
 
 ```
-... from:
+//... from:
   title = 'app works';
-... to:
+//... to:
   title = 'Villains unite!';
 ```
 Now go back to the browser window and you'll see the magic.
@@ -177,8 +177,97 @@ it('should change alias in title when edited', async(()=>{
 
 There are more elegant ways to do that, but for this little example it fits.
 
+## 5. Call in the Villains
 
+### 1. We need data
 
+For now let's create a static list of Villains in our AppComponent.
+Let's also remove the data for our first single Villain, as we will make it selectable.
+Later on we move this to the proper place.
+
+```typescript
+//...
+
+const VILLAINS: Villain[] = [
+  {id: 1, alias: 'Rebooter', power: 'Random Updates'},
+  {id: 2, alias: 'Break Changer', power: 'API crushing'},
+  {id: 3, alias: 'Not-Tester', power: 'Edit on Prod'},
+  {id: 4, alias: 'Super Spamer', power: 'Mail Fludding'},
+  {id: 5, alias: 'Mrs. DDOS', power: 'Service Overuse'},
+  {id: 6, alias: 'Trojan', power: 'Remote Control'},
+  {id: 7, alias: 'Randzombie', power: 'Encryptor'},
+  {id: 8, alias: 'Leacher', power: 'Net Overload'},
+  {id: 23, alias: 'Captain Spaghetticoder', power: 'Bug Creator'}
+];
+
+//...
+
+export class AppComponent {
+  title = 'Villains unite!';
+  villains = VILLAINS;
+  villain: Villain;
+
+//...
+```
+
+### 3. Let's display the Villains
+
+Using `*ngFor` we can now loop through our list of Villain objects.
+And as we want to be able to select a Villain we will add a click event.
+The () bind a common event to a method within our component.
+And as we want to style the selected one, let's add a class if the current villain matches our villain in the component.
+
+```HTML
+<ul class="thisVillain">
+  <li *ngFor="let thisVillain of villains"
+    (click)="onSelect(thisVillain)"
+    [class.selected]="thisVillain === villain">
+
+    {{thisVillain.alias}}
+    <span class="power">({{thisVillain.power}})</span>
+
+  </li>
+</ul>
+```
+
+### 4. Show the selected Villain
+
+If you open your current version you'll get an error as AppComponent.villain is undefined.
+So let's make sure the villain form is only shown if one is selected.
+
+```HTML
+<div *ngIf="villain">
+  <h2>{{villain.alias}} profile.</h2>
+  <div>
+    <label>id: </label>
+    {{villain.id}}
+  </div>
+  <div>
+    <label>alias: </label>
+    <input [(ngModel)]="villain.alias" placeholder="alias" />
+  </div>
+  <div>
+    <label>power: </label>
+    <input [(ngModel)]="villain.power" placeholder="power" />
+  </div>
+</div>
+```
+
+Tadaa... Now you can select a villain and edit it. Look at how it adapts everywhere as you change an alias or power.
+
+### 5. A little bit of style
+
+So let's highlight our selected Villain in `app.component.css`:
+
+```CSS
+.selected {
+  text-decoration: underline;
+}
+```
+
+There is the possibility to add css in the AppComponent decorator (metadata) but we'll stick to separate css files.
+Angular-cli already created the css file for us and referenced it in our AppComponent.
+(If you want your html or css inline you can use the option `ng g component xyz --flat`. This is also great if you component doesn't need any css.)
 
 
 ***

@@ -1,16 +1,30 @@
 <h1>
   {{title}}
 </h1>
-<h2>{{villain.alias}} profile.</h2>
-<div>
-  <label>id: </label>
-  {{villain.id}}
-</div>
-<div>
-  <label>alias: </label>
-  <input [(ngModel)]="villain.alias" placeholder="alias" />
-</div>
-<div>
-  <label>power: </label>
-  <input [(ngModel)]="villain.power" placeholder="power" />
+
+<ul class="thisVillain">
+  <li *ngFor="let thisVillain of villains"
+    (click)="onSelect(thisVillain)"
+    [class.selected]="thisVillain === villain">
+
+    {{thisVillain.alias}}
+    <span class="power">({{thisVillain.power}})</span>
+
+  </li>
+</ul>
+
+<div *ngIf="villain">
+  <h2>{{villain.alias}} profile.</h2>
+  <div>
+    <label>id: </label>
+    {{villain.id}}
+  </div>
+  <div>
+    <label>alias: </label>
+    <input [(ngModel)]="villain.alias" placeholder="alias" />
+  </div>
+  <div>
+    <label>power: </label>
+    <input [(ngModel)]="villain.power" placeholder="power" />
+  </div>
 </div>

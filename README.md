@@ -269,6 +269,12 @@ There is the possibility to add css in the AppComponent decorator (metadata) but
 Angular-cli already created the css file for us and referenced it in our AppComponent.
 (If you want your html or css inline you can use the option `ng g component xyz --flat`. This is also great if you component doesn't need any css.)
 
+## 6. Let's deploy to gitlab pages.
+
+If you put your project on github you can publish your current version easily to a github page:
+
+`ng github-pages:deploy`
+
 
 ***
 ***

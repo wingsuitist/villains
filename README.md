@@ -275,6 +275,7 @@ If you put your project on github you can publish your current version easily to
 
 `ng github-pages:deploy`
 
+Now you can open it with: `https://yourusername.github.io/villains/`
 
 ***
 ***

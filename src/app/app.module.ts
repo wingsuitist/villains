@@ -4,10 +4,12 @@ import { FormsModule } from '@angular/forms';
 import { HttpModule } from '@angular/http';
 
 import { AppComponent } from './app.component';
+import { VillainEditComponent } from './villain-edit/villain-edit.component';
 
 @NgModule({
   declarations: [
-    AppComponent
+    AppComponent,
+    VillainEditComponent
   ],
   imports: [
     BrowserModule,

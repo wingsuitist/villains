@@ -279,7 +279,7 @@ So let's highlight our selected Villain in `app.component.css`:
 
 There is the possibility to add css in the AppComponent decorator (metadata) but we'll stick to separate css files.
 Angular-cli already created the css file for us and referenced it in our AppComponent.
-(If you want your html or css inline you can use the option `ng g component xyz --flat`. This is also great if you component doesn't need any css.)
+(If you want your html or css inline you can use the option `ng g component xyz --inline-template --inline-style`. This is also great if you component doesn't need any css. If you don't want it to create it's on folder you can use `--flat.`)
 
 ## 6. Let's deploy to gitlab pages.
 
@@ -293,3 +293,22 @@ Here you se the code that has to be deployed for your app:
 https://github.com/wingsuitist/villains/tree/gh-pages
 
 It isn't much, isn't it :-).
+
+## 7. Components
+
+Let's split this up into usefull components.
+
+You can keep you're app running `ng serve` and look at it's state after every step. It should auto reload.
+
+### 1. Generate Edit Component
+
+The easiest way to create a component is by using angular-cli (you may recognized, we like this tool a lot):
+
+```shell
+cd src/app/
+ng generate component villain-edit
+```
+
+With this you get a new folder containing your component including the css, html, TypeScript class and even the testing file (spec.ts).
+
+But if you check `git status` you will see it also adds your component to the `app.module.ts` file to make it available right away.

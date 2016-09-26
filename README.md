@@ -26,6 +26,9 @@ git checkout tags/v2.3.0
 
 ## 2. Generate the base for our app
 
+Finale source of this part:
+https://github.com/wingsuitist/villains/tree/v2.3.0
+
 ### 1. create villains app:
 
 ```

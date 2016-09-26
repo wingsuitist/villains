@@ -153,6 +153,9 @@ villain : Villain = {
 
 ## 4. Let's edit our Villain
 
+Final source of this part:
+https://github.com/wingsuitist/villains/tree/v4.2
+
 ### 1. Add inputs
 
 Replace the regular output for power and alias with a two way binding:

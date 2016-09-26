@@ -90,6 +90,9 @@ Try to edit `src/app/app.component.spec.ts` to make the tests work again.
 
 To fully benefit from thought through structure of Angular 2 you should stick to the [Style Guide](https://angular.io/docs/ts/latest/guide/style-guide.html#!#application-structure)
 
+Final source of this part:
+https://github.com/wingsuitist/villains/tree/v3.5.0
+
 ### 1. Let's create the Villain class
 
 Add a class `Villain` with a number property `id` and a string property `name` in the file `src/app/shared/villain.model.ts`.

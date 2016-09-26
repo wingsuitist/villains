@@ -266,6 +266,9 @@ Tadaa... Now you can select a villain and edit it. Look at how it adapts everywh
 
 ### 5. A little bit of style
 
+Final source of this part:
+https://github.com/wingsuitist/villains/tree/v5.5
+
 So let's highlight our selected Villain in `app.component.css`:
 
 ```CSS

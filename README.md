@@ -288,3 +288,8 @@ If you put your project on github you can publish your current version easily to
 `ng github-pages:deploy`
 
 Now you can open it with: `https://yourusername.github.io/villains/`
+
+Here you se the code that has to be deployed for your app:
+https://github.com/wingsuitist/villains/tree/gh-pages
+
+It isn't much, isn't it :-).

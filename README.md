@@ -312,3 +312,26 @@ ng generate component villain-edit
 With this you get a new folder containing your component including the css, html, TypeScript class and even the testing file (spec.ts).
 
 But if you check `git status` you will see it also adds your component to the `app.module.ts` file to make it available right away.
+
+### 2. Naming Conventions
+
+If you take a look at the component TypeScript you'll se something about the naming Conventions:
+
+```typescript
+@Component({
+  selector: 'vil-villain-edit',
+  templateUrl: './villain-edit.component.html',
+  styleUrls: ['./villain-edit.component.css']
+})
+export class VillainEditComponent implements OnInit {
+```
+
+From top down you first see the selector which refers to the HTML tag `<vil-villain-edit>` in this case. You may have guessed from the word `selector` that this allows you to use more than tags. You could also use `selector: '.vil-villain-edit'`, which would allow you to call this component by any tag with the class like `<div class="vil-villain-edit"></div>`.
+
+Now why do we have the `vil-` in front of the selector? That's due to the prefix we defined at the beginning of the tutorial. Angular-cli will use this prefix for the selector to make sure that there is no other tag interfering with your module. It's kind of a name space alternative within the template.
+
+Then you see the file names with the hyphen separating the parts of your components name.
+
+And last but not least you see the class name which uses upper camel case.
+
+There are great explanations within the [Style Guide](https://angular.io/docs/ts/latest/guide/style-guide.html) on how why those conventions have been chosen. But for now it's great to know that the angular-cli team is holding our back and makes sure everything is correct.

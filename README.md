@@ -1,7 +1,7 @@
 # Villains
 
 Angular 2 Tutorial using webpack, angular-cli and some other little differences.
-Sponsored by: "Angular 2 Trainings in Switzerland":(http://www.letsboot.com/angular2)
+Sponsored by: [Angular 2 Trainings in Switzerland]:(http://www.letsboot.com/angular2)
 
 Live demo of the villains application: https://wingsuitist.github.io/villains/
 

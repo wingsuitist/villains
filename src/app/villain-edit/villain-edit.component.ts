@@ -1,4 +1,5 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, Input } from '@angular/core';
+import { Villain } from '../shared'
 
 @Component({
   selector: 'vil-villain-edit',
@@ -6,6 +7,9 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./villain-edit.component.css']
 })
 export class VillainEditComponent implements OnInit {
+
+  @Input()
+  villain: Villain;
 
   constructor() { }
 

@@ -107,6 +107,12 @@ export class Villain {
 }
 ```
 
+You can also create this file using angular-cli:
+
+```bash
+ng generate class shared/villain model
+```
+
 ### 2. Make it available to your component
 
 Add the Villain class to the index.ts of the shared folder:

@@ -12,19 +12,3 @@
 
   </li>
 </ul>
-
-<div *ngIf="villain">
-  <h2>{{villain.alias}} profile.</h2>
-  <div>
-    <label>id: </label>
-    {{villain.id}}
-  </div>
-  <div>
-    <label>alias: </label>
-    <input [(ngModel)]="villain.alias" placeholder="alias" />
-  </div>
-  <div>
-    <label>power: </label>
-    <input [(ngModel)]="villain.power" placeholder="power" />
-  </div>
-</div>

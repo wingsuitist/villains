@@ -378,7 +378,7 @@ Now this can be used as a attribute when we use the `<vil-villain-edit>` tag som
 
 First we move the edit form from the `app.component.html` to the `villain-edit.component.html`. Everything stays the same as we will have the Villain object as we had before.
 
-And in the `app.component.html` we add our new separate edit Component with the @Input property hero:
+And in the `app.component.html` we add our new separate edit Component with the @Input property villain:
 
 ```html
 <vil-villain-edit [villain]="villain"></vil-villain-edit>
@@ -447,3 +447,62 @@ export class AppComponent {
 ```
 
 We are now able to access it via `this.villainService`.
+
+### 8.2. Let's get some Villains
+
+Let's move the array of Villains from `app.component.ts` to `villain.service.ts` and add a `getVillains()` function to return it. Don't forget to import the Villain.
+
+```typescript
+import { Injectable } from '@angular/core';
+import { Villain } from './villain.model';
+
+const VILLAINS: Villain[] = [
+  {id: 1, alias: 'Rebooter', power: 'Random Updates'},
+  {id: 2, alias: 'Break Changer', power: 'API crushing'},
+  {id: 3, alias: 'Not-Tester', power: 'Edit on Prod'},
+  {id: 4, alias: 'Super Spamer', power: 'Mail Fludding'},
+  {id: 5, alias: 'Mrs. DDOS', power: 'Service Overuse'},
+  {id: 6, alias: 'Trojan', power: 'Remote Control'},
+  {id: 7, alias: 'Randzombie', power: 'Encryptor'},
+  {id: 8, alias: 'Leacher', power: 'Net Overload'},
+  {id: 23, alias: 'Captain Spaghetticoder', power: 'Bug Creator'}
+];
+
+@Injectable()
+export class VillainService {
+  constructor() { }
+
+  getVillains(): Villain[] {
+    return VILLAINS;
+  }
+}
+```
+
+And now we want to use the service within the `AppComponent`. And the proper place to use it is in the so called OnInit life cycle hook. To make angular2 call our `ngOnInit()` method we import and implement it in our `AppComponent`:
+
+```typescript
+import { Component, OnInit } from '@angular/core';
+import { Villain, VillainService } from './shared';
+
+@Component({
+  selector: 'vil-root',
+  templateUrl: './app.component.html',
+  styleUrls: ['./app.component.css'],
+  providers: [ VillainService ]
+})
+export class AppComponent implements OnInit {
+  title = 'Villains unite!';
+  villain: Villain;
+  villains: Villain[];
+
+  constructor(private villainService: VillainService) {}
+
+  ngOnInit(): void {
+    this.villains = this.villainService.getVillains();
+  }
+
+  onSelect(villain: Villain): void {
+    this.villain = villain;
+  }
+}
+```

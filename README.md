@@ -304,9 +304,12 @@ It isn't much, isn't it :-).
 
 ## 7. Components
 
-Let's split this up into usefull components.
+Let's split this up into useful components.
 
 You can keep you're app running `ng serve` and look at it's state after every step. It should auto reload.
+
+Final source of this part:
+https://github.com/wingsuitist/villains/tree/v7.4.0
 
 ### 1. Generate Edit Component
 

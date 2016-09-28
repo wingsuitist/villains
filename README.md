@@ -385,3 +385,65 @@ And in the `app.component.html` we add our new separate edit Component with the 
 ```
 
 Now if you go back to your browser you'll see the current state, which should look the same as before.
+
+## 8. Services
+
+We are still using static villains in our `app.component.ts`. As we want to access them from different other components in the future, and as we may also get them from a server, we build a service.
+
+### 8.1. Create and inject Service class
+
+A service in angular 2 is a regular class with the `@Injectable()` decorator to prepare it for dependency injection. (Here you find a great [video about how decorators work:](https://www.youtube.com/watch?v=05FC8Wh7C5w))
+
+But why bother, let's angular-cli generate our service:
+
+```bash
+cd src/app/
+ng generate service shared/villain
+```
+
+This will generate a new file `villain.service.ts` which contains the minimal injectable Service:
+
+```typescript
+import { Injectable } from '@angular/core';
+
+@Injectable()
+export class VillainService {
+
+  constructor() { }
+
+}
+```
+
+To make importing the service simpler we add it to the `shared/index.ts`:
+
+```typescript
+export * from './villain.model';
+export * from './villain.service';
+```
+
+And now we have to make it available for consumption in our `app.compontent.ts`.
+We first add it to the list of things we want to import from the `./shared` folder:
+
+```typescript
+import { Component } from '@angular/core';
+import { Villain, VillainService } from './shared';
+```
+
+Then we add it ad a provider to the `@Component()` decorator. And finally we add a constructor method with the TypeScript feature to directly define the injected object as a property of our AppCompontent:
+
+```typescript
+@Component({
+  selector: 'vil-root',
+  templateUrl: './app.component.html',
+  styleUrls: ['./app.component.css'],
+  providers: [ VillainService ]
+})
+export class AppComponent {
+  title = 'Villains unite!';
+  villains = VILLAINS;
+  villain: Villain;
+
+  constructor(private villainService: VillainService) {}
+```
+
+We are now able to access it via `this.villainService`.

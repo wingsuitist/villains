@@ -1,5 +1,5 @@
 import { Component } from '@angular/core';
-import { Villain } from './shared';
+import { Villain, VillainService } from './shared';
 
 const VILLAINS: Villain[] = [
   {id: 1, alias: 'Rebooter', power: 'Random Updates'},
@@ -16,12 +16,15 @@ const VILLAINS: Villain[] = [
 @Component({
   selector: 'vil-root',
   templateUrl: './app.component.html',
-  styleUrls: ['./app.component.css']
+  styleUrls: ['./app.component.css'],
+  providers: [ VillainService ]
 })
 export class AppComponent {
   title = 'Villains unite!';
   villains = VILLAINS;
   villain: Villain;
+
+  constructor(private villainService: VillainService) {}
 
   onSelect(villain: Villain): void {
     this.villain = villain;

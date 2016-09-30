@@ -31,7 +31,7 @@ git checkout tags/v2.3.0
 Final source of this part:
 https://github.com/wingsuitist/villains/tree/v2.3.0
 
-### 1. create villains app:
+### 2.1. create villains app:
 
 ```
 cd  ~/where-you-keep-your-code-projects/
@@ -47,7 +47,7 @@ This prefix will be mostly used for your own components in the html templates, f
 
  `<vil-list></vil-list>`
 
-### 2. run and look at your app
+### 2.2. run and look at your app
 
 ```
 ng serve
@@ -77,7 +77,7 @@ And src/app/app.component.ts
 Now go back to the browser window and you'll see the magic.
 If you're quick enough you'll see how the browser is already reloading when you press save in the editor.
 
-### 3. testing is important
+### 2.3. testing is important
 
 Run the ng tests, which where generated for your app:
 
@@ -95,7 +95,7 @@ To fully benefit from thought through structure of Angular 2 you should stick to
 Final source of this part:
 https://github.com/wingsuitist/villains/tree/v3.5.0
 
-### 1. Let's create the Villain class
+### 3.1. Let's create the Villain class
 
 Add a class `Villain` with a number property `id` and a string property `name` in the file `src/app/shared/villain.model.ts`.
 
@@ -113,7 +113,7 @@ You can also create this file using angular-cli:
 ng generate class shared/villain model
 ```
 
-### 2. Make it available to your component
+### 3.2. Make it available to your component
 
 Add the Villain class to the index.ts of the shared folder:
 
@@ -127,7 +127,7 @@ Import it in the app.component.ts:
 import { Villain } from './shared';
 ```
 
-### 3. Create the first villain
+### 3.3. Create the first villain
 
 Add the first villain as a property to your component:
 
@@ -139,7 +139,7 @@ villain : Villain = {
 };
 ```
 
-### 4. Show the villain in your HTML
+### 3.4. Show the villain in your HTML
 
 ```HTML
 <h2>{{villain.alias}} profile.</h2>
@@ -157,14 +157,14 @@ villain : Villain = {
 </div>
 ```
 
-### 5. Add tests to your .specs.ts
+### 3.5. Add tests to your .specs.ts
 
 ## 4. Let's edit our Villain
 
 Final source of this part:
 https://github.com/wingsuitist/villains/tree/v4.2
 
-### 1. Add inputs
+### 4.1. Add inputs
 
 Replace the regular output for power and alias with a two way binding:
 
@@ -174,7 +174,7 @@ Replace the regular output for power and alias with a two way binding:
 
 As the angular-cli already loaded the FormsModule this works out of the box and adds the two way binding.
 
-### 2. Test the inputs
+### 4.2. Test the inputs
 
 Now we have to write a test, that changes the alias of our villain and makes sure it's also added to the title h2.
 
@@ -196,7 +196,7 @@ There are more elegant ways to do that, but for this little example it fits.
 
 ## 5. Call in the Villains
 
-### 1. We need data
+### 5.1. We need data
 
 For now let's create a static list of Villains in our AppComponent.
 Let's also remove the data for our first single Villain, as we will make it selectable.
@@ -227,7 +227,7 @@ export class AppComponent {
 //...
 ```
 
-### 3. Let's display the Villains
+### 5.3. Let's display the Villains
 
 Using `*ngFor` we can now loop through our list of Villain objects.
 And as we want to be able to select a Villain we will add a click event.
@@ -247,7 +247,7 @@ And as we want to style the selected one, let's add a class if the current villa
 </ul>
 ```
 
-### 4. Show the selected Villain
+### 5.4. Show the selected Villain
 
 If you open your current version you'll get an error as AppComponent.villain is undefined.
 So let's make sure the villain form is only shown if one is selected.
@@ -272,7 +272,7 @@ So let's make sure the villain form is only shown if one is selected.
 
 Tadaa... Now you can select a villain and edit it. Look at how it adapts everywhere as you change an alias or power.
 
-### 5. A little bit of style
+### 5.5. A little bit of style
 
 Final source of this part:
 https://github.com/wingsuitist/villains/tree/v5.5
@@ -311,7 +311,7 @@ You can keep you're app running `ng serve` and look at it's state after every st
 Final source of this part:
 https://github.com/wingsuitist/villains/tree/v7.4.0
 
-### 1. Generate Edit Component
+### 7.1. Generate Edit Component
 
 The easiest way to create a component is by using angular-cli (you may recognized, we like this tool a lot):
 
@@ -324,7 +324,7 @@ With this you get a new folder containing your component including the css, html
 
 But if you check `git status` you will see it also adds your component to the `app.module.ts` file to make it available right away.
 
-### 2. Naming Conventions
+### 7.2. Naming Conventions
 
 If you take a look at the component TypeScript you'll se something about the naming Conventions:
 
@@ -347,7 +347,7 @@ And last but not least you see the class name which uses upper camel case.
 
 There are great explanations within the [Style Guide](https://angular.io/docs/ts/latest/guide/style-guide.html) on how why those conventions have been chosen. But for now it's great to know that the angular-cli team is holding our back and makes sure everything is correct.
 
-### 3. Prepare for Input
+### 7.3. Prepare for Input
 
 In our new component we will also need the Villain object to hand it over to the view.
 
@@ -374,7 +374,7 @@ export class VillainEditComponent implements OnInit {
 
 Now this can be used as a attribute when we use the `<vil-villain-edit>` tag somewhere.
 
-### 4. Move the edit form
+### 7.4. Move the edit form
 
 First we move the edit form from the `app.component.html` to the `villain-edit.component.html`. Everything stays the same as we will have the Villain object as we had before.
 

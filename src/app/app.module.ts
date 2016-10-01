@@ -7,12 +7,14 @@ import { routing } from './app.routing';
 import { AppComponent } from './app.component';
 import { VillainEditComponent } from './villain-edit/villain-edit.component';
 import { VillainListComponent } from './villain-list/villain-list.component';
+import { PowersComponent } from './powers/powers.component';
 
 @NgModule({
   declarations: [
     AppComponent,
     VillainEditComponent,
-    VillainListComponent
+    VillainListComponent,
+    PowersComponent
   ],
   imports: [
     BrowserModule,

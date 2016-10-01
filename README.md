@@ -625,3 +625,60 @@ And now instead of directly loading the `VillainListComponent` in our `app.compo
 ```
 
 If you look at the browser now, you'll get a JavaScript error that no route matches and nothing is shown. If you call the URL `http://localhost:4200/villains` you'll see the application as it was before.
+
+### 9.3 The navigation
+
+Now let's add a navigation to our `app.component.html`:
+
+```html
+<ul>
+  <li>
+    <a routerLink="villains">Villains</a>
+  </li>
+  <li>
+    <a routerLink="powers">Powers</a>
+  </li>
+</ul>
+```
+
+And let's add a default route to our `app.routing.ts`:
+
+```typescript
+const appRoutes: Routes = [
+  {
+    path: 'villains',
+    component: VillainListComponent
+  },
+  {
+    path: '**',
+    component: VillainListComponent
+  }
+```
+
+Now we have a navigation and in any case the `VillainListComponent` is loaded.
+
+### 9.3 Add and route the powers component
+
+So let's add an empty `PowersComponent` for now and route to it:
+
+```bash
+cd src/app
+ng generate component powers
+```
+
+Add it to our routing configuration:
+
+```typescript
+// ...
+import { VillainListComponent } from './villain-list/villain-list.component';
+import { PowersComponent } from './powers/powers.component';
+
+const appRoutes: Routes = [
+  {
+    path: 'powers',
+    component: PowersComponent
+  },
+  // ...
+```
+
+Now we can navigate between our components.

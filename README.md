@@ -5,6 +5,8 @@ Sponsored by: [Angular 2 Trainings in Switzerland](http://www.letsboot.com/angul
 
 Live demo of the villains application: https://wingsuitist.github.io/villains/
 
+We listed `cd src/app` in our shell snippets for you to make sure, that you are in the app folder.
+
 ## General
 
 We use mostly the shell and a code editor.

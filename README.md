@@ -508,3 +508,74 @@ export class AppComponent implements OnInit {
   }
 }
 ```
+
+## 9. Routing
+
+We want to add a separate view which trains us in knowing each villains power. For that we need the possibility to switch between views which can be solved with routing.
+
+### 9.1 Separate List view
+
+Let's add a new component for the List of Villain, to separate it from the AppComponent:
+
+```bash
+cd src/app
+ng generate component villain-list
+```
+
+No let's move the code from the AppComponent to `villain-list/` component.
+
+Your `app.component.ts` should look like this:
+
+```typescript
+import { Component, OnInit } from '@angular/core';
+
+@Component({
+  selector: 'vil-root',
+  templateUrl: './app.component.html',
+  styleUrls: ['./app.component.css']
+})
+export class AppComponent implements OnInit {
+
+  constructor() {}
+
+  ngOnInit(): void {
+  }
+}
+```
+
+Your `villain-list.component.ts` should look like this:
+
+```typescript
+import { Component, OnInit } from '@angular/core';
+import { Villain, VillainService } from '../shared';
+
+@Component({
+  selector: 'vil-villain-list',
+  templateUrl: './villain-list.component.html',
+  styleUrls: ['./villain-list.component.css'],
+  providers: [ VillainService ]
+})
+export class VillainListComponent implements OnInit {
+  title = 'Villains unite!';
+  villain: Villain;
+  villains: Villain[];
+
+  constructor(private villainService: VillainService) {}
+
+  ngOnInit(): void {
+    this.villains = this.villainService.getVillains();
+  }
+
+  onSelect(villain: Villain): void {
+    this.villain = villain;
+  }
+}
+```
+
+You can cut and paste the whole html from the app component to the villain list.
+
+For now you can add the villain-list component to your `app.component.html` to make sure everything works:
+
+```html
+<vil-villain-list></vil-villain-list>
+```

@@ -5,11 +5,13 @@ import { HttpModule } from '@angular/http';
 
 import { AppComponent } from './app.component';
 import { VillainEditComponent } from './villain-edit/villain-edit.component';
+import { VillainListComponent } from './villain-list/villain-list.component';
 
 @NgModule({
   declarations: [
     AppComponent,
-    VillainEditComponent
+    VillainEditComponent,
+    VillainListComponent
   ],
   imports: [
     BrowserModule,

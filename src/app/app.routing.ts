@@ -15,6 +15,10 @@ const appRoutes: Routes = [
     component: PowersComponent
   },
   {
+    path: 'villain/:id',
+    component: VillainListComponent
+  },
+  {
     path: 'villains',
     component: VillainListComponent
   },

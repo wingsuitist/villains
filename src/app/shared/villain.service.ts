@@ -26,4 +26,9 @@ export class VillainService {
     let randomKey: number = Math.floor(Math.random() * villains.length);
     return villains[randomKey];
   }
+
+  getVillain(id: number): Villain {
+    let villains = this.getVillains();
+    return villains.find(villain => villain.id === id);
+  }
 }

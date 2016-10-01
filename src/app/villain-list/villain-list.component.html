@@ -4,12 +4,11 @@
 
 <ul class="thisVillain">
   <li *ngFor="let thisVillain of villains"
-    (click)="onSelect(thisVillain)"
     [class.selected]="thisVillain === villain">
-
-    {{thisVillain.alias}}
-    <span class="power">({{thisVillain.power}})</span>
-
+    <a routerLink="/villain/{{thisVillain.id}}">
+      {{thisVillain.alias}}
+      <span class="power">({{thisVillain.power}})</span>
+    </a>
   </li>
 </ul>
 

@@ -834,3 +834,11 @@ export class PowersComponent implements OnInit {
   }
 }
 ```
+
+## 11. Parameterized route
+
+The router is also able to use parameters so a url like this is possible:
+
+`villain/23`
+
+... Todo: Explain parameters

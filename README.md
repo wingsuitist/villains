@@ -513,6 +513,8 @@ export class AppComponent implements OnInit {
 
 We want to add a separate view which trains us in knowing each villains power. For that we need the possibility to switch between views which can be solved with routing.
 
+There will be routing support for `angular-cli`. It was removed due to the new router version and will be integrated later on. (Please tell me to update this as soon as it's available in the official version.)
+
 ### 9.1 Separate List view
 
 Let's add a new component for the List of Villain, to separate it from the AppComponent:
@@ -579,3 +581,47 @@ For now you can add the villain-list component to your `app.component.html` to m
 ```html
 <vil-villain-list></vil-villain-list>
 ```
+
+### 9.2 Basic Routing
+
+We will manage our routes in a new file `app.routing.ts`:
+
+```typescript
+import { ModuleWithProviders } from '@angular/core';
+import { Routes, RouterModule } from '@angular/router';
+
+import { VillainListComponent } from './villain-list/villain-list.component';
+
+const appRoutes: Routes = [
+  {
+    path: 'villains',
+    component: VillainListComponent
+  }
+];
+
+export const routing: ModuleWithProviders = RouterModule.forRoot(appRoutes);
+```
+
+This adds a first route for the path `villains/` which will load the `VillainListComponent`. To make use of this route we export a routing `ModuleWithProviders` to use it for routing in the `AppComponent` later on.
+
+Now let's add the routing to our module in the `app.module.ts`:
+
+```typescript
+import { routing } from './app.routing';
+// ...
+@NgModule({
+  // ...
+  imports: [
+    BrowserModule,
+    FormsModule,
+    HttpModule,
+    routing
+```
+
+And now instead of directly loading the `VillainListComponent` in our `app.component.html` we will show what the router wants to load by using the `router-outlet`:
+
+```html
+<router-outlet></router-outlet>
+```
+
+If you look at the browser now, you'll get a JavaScript error that no route matches and nothing is shown. If you call the URL `http://localhost:4200/villains` you'll see the application as it was before.

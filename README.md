@@ -682,3 +682,17 @@ const appRoutes: Routes = [
 ```
 
 Now we can navigate between our components.
+
+### 9.4 Redirects
+
+To have one clear URL we can redirect `/` to `villains`:
+
+```typescript
+{
+  path: '',
+  redirectTo: 'villains',
+  pathMatch: 'full'
+},
+```
+
+The router goes through the `appRouters` Array from top to bottom matching each case. As soon as it finds the first match it executes it as configured.

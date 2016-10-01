@@ -6,6 +6,11 @@ import { PowersComponent } from './powers/powers.component';
 
 const appRoutes: Routes = [
   {
+    path: '',
+    redirectTo: 'villains',
+    pathMatch: 'full'
+  },
+  {
     path: 'powers',
     component: PowersComponent
   },

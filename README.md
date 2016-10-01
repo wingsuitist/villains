@@ -696,3 +696,54 @@ To have one clear URL we can redirect `/` to `villains`:
 ```
 
 The router goes through the `appRouters` Array from top to bottom matching each case. As soon as it finds the first match it executes it as configured.
+
+## 10. Learning the Power
+
+So let's learn the power of each villain so we are ready to defend our selves.
+
+### 10.1. Show random power
+
+First we need to inject the `VillainService` to fetch the villains in our `powers.component.ts`:
+
+```typescript
+import { Component, OnInit } from '@angular/core';
+import { Villain, VillainService } from '../shared';
+
+@Component({
+  selector: 'vil-powers',
+  templateUrl: './powers.component.html',
+  styleUrls: ['./powers.component.css'],
+  providers: [ VillainService ]
+})
+export class PowersComponent implements OnInit {
+
+  constructor(private villainService: VillainService) {}
+```
+
+And then we want to get a random villain for the quiz:
+
+```typescript
+export class PowersComponent implements OnInit {
+  villains: Villain[];
+  randomVillain: Villain;
+
+  constructor(private villainService: VillainService) {}
+
+  ngOnInit() {
+    this.villains = this.villainService.getVillains();
+
+    let randomKey: number = Math.floor(Math.random() * this.villains.length);
+    this.randomVillain = this.villains[randomKey];
+  }
+```
+
+So now we can show this villains power in the `powers.component.html`:
+
+```html
+<h2>
+  Guess the Villain:
+</h2>
+<p>
+  {{randomVillain.power}}
+</p>
+```

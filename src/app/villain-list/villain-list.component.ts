@@ -4,8 +4,7 @@ import { Villain, VillainService } from '../shared';
 @Component({
   selector: 'vil-villain-list',
   templateUrl: './villain-list.component.html',
-  styleUrls: ['./villain-list.component.css'],
-  providers: [ VillainService ]
+  styleUrls: ['./villain-list.component.css']
 })
 export class VillainListComponent implements OnInit {
   title = 'Villains unite!';

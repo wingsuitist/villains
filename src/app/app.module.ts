@@ -4,6 +4,7 @@ import { FormsModule } from '@angular/forms';
 import { HttpModule } from '@angular/http';
 import { routing } from './app.routing';
 
+import { Villain, VillainService } from './shared';
 import { AppComponent } from './app.component';
 import { VillainEditComponent } from './villain-edit/villain-edit.component';
 import { VillainListComponent } from './villain-list/villain-list.component';
@@ -22,7 +23,7 @@ import { PowersComponent } from './powers/powers.component';
     HttpModule,
     routing
   ],
-  providers: [],
+  providers: [ VillainService ],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

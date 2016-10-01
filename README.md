@@ -747,3 +747,11 @@ So now we can show this villains power in the `powers.component.html`:
   {{randomVillain.power}}
 </p>
 ```
+
+### 10.2. Share the Villain Service (optimize)
+
+Angular works with so called zones and each time you add a Service to the list of providers in Component it creates a separate instance of this Service.
+
+There is no reason to create separate instances of the `VillainService` for our Components.
+
+So let's remove `providers: [ VillainService ]` from the `VillainListComponent` and from the `PowersComponent` and add it to the `@NgModule` in `app.module.ts`. We also need to import it in the `app.module.ts` and we have to keep the imports, as well as the parameters of the constructors, in each Component.

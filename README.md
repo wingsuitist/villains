@@ -755,3 +755,27 @@ Angular works with so called zones and each time you add a Service to the list o
 There is no reason to create separate instances of the `VillainService` for our Components.
 
 So let's remove `providers: [ VillainService ]` from the `VillainListComponent` and from the `PowersComponent` and add it to the `@NgModule` in `app.module.ts`. We also need to import it in the `app.module.ts` and we have to keep the imports, as well as the parameters of the constructors, in each Component.
+
+### 10.3. create getRandomVillain() (optimize)
+
+Even if finding a random item in the array is a small piece of code, we should move it out of the component. Maybe later on we change the implementation of how to receive a random villain.
+
+So let's add the `getRandomVillain` function to our `villain.service.ts`:
+
+```typescript
+
+  getRandomVillain(): Villain {
+    let villains = this.getVillains();
+    let randomKey: number = Math.floor(Math.random() * villains.length);
+    return villains[randomKey];
+  }
+```
+
+And let's us it in the `PowersComponent`:
+
+```typescript
+  ngOnInit() {
+    this.villains = this.villainService.getVillains();
+    this.randomVillain = this.villainService.getRandomVillain();
+  }
+```

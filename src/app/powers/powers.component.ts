@@ -14,9 +14,7 @@ export class PowersComponent implements OnInit {
 
   ngOnInit() {
     this.villains = this.villainService.getVillains();
-
-    let randomKey: number = Math.floor(Math.random() * this.villains.length);
-    this.randomVillain = this.villains[randomKey];
+    this.randomVillain = this.villainService.getRandomVillain();
   }
 
 }

@@ -20,4 +20,10 @@ export class VillainService {
   getVillains(): Villain[] {
     return VILLAINS;
   }
+
+  getRandomVillain(): Villain {
+    let villains = this.getVillains();
+    let randomKey: number = Math.floor(Math.random() * villains.length);
+    return villains[randomKey];
+  }
 }

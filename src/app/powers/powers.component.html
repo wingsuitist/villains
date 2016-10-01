@@ -4,3 +4,15 @@
 <p>
   {{randomVillain.power}}
 </p>
+<h3>
+  Which Villain has this power?
+</h3>
+<p *ngIf="message">{{message}}</p>
+<div><label>Score: </label>{{score}}</div>
+<ul>
+  <li *ngFor="let villain of villains">
+    <a (click)="chooseVillain(villain)">
+      {{villain.alias}}
+    </a>
+  </li>
+</ul>

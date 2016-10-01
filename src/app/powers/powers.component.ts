@@ -9,6 +9,8 @@ import { Villain, VillainService } from '../shared';
 export class PowersComponent implements OnInit {
   villains: Villain[];
   randomVillain: Villain;
+  score: number = 0;
+  message: string;
 
   constructor(private villainService: VillainService) {}
 
@@ -17,4 +19,14 @@ export class PowersComponent implements OnInit {
     this.randomVillain = this.villainService.getRandomVillain();
   }
 
+  chooseVillain(villain: Villain) {
+    if(this.randomVillain.id == villain.id) {
+      this.score++;
+      this.message = 'correct!';
+    } else {
+      this.score = 0;
+      this.message = 'wrong - start over.'  
+    }
+    this.randomVillain = this.villainService.getRandomVillain();
+  }
 }

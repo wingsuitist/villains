@@ -776,6 +776,61 @@ And let's us it in the `PowersComponent`:
 ```typescript
   ngOnInit() {
     this.villains = this.villainService.getVillains();
+    this.randomVillain
+    = this.villainService.getRandomVillain();
+  }
+```
+
+### 10.4. Select the matching Villain
+
+Now let's list the Villains and let the user select the matching one, show our score and a message depending on our success:
+
+```html
+<h2>
+  Guess the Villain:
+</h2>
+<p>
+  {{randomVillain.power}}
+</p>
+<h3>
+  Which Villain has this power?
+</h3>
+<p *ngIf="message">{{message}}</p>
+<div><label>Score: </label>{{score}}</div>
+<ul>
+  <li *ngFor="let villain of villains">
+    <a (click)="chooseVillain(villain)">
+      {{villain.alias}}
+    </a>
+  </li>
+</ul>
+```
+
+And create the matching method which gets a new random villain, increases or resets our score and shows a message:
+
+```typescript
+export class PowersComponent implements OnInit {
+  villains: Villain[];
+  randomVillain: Villain;
+  score: number = 0;
+  message: string;
+
+  constructor(private villainService: VillainService) {}
+
+  ngOnInit() {
+    this.villains = this.villainService.getVillains();
     this.randomVillain = this.villainService.getRandomVillain();
   }
+
+  chooseVillain(villain: Villain) {
+    if(this.randomVillain.id == villain.id) {
+      this.score++;
+      this.message = 'correct!';
+    } else {
+      this.score = 0;
+      this.message = 'wrong - start over.'  
+    }
+    this.randomVillain = this.villainService.getRandomVillain();
+  }
+}
 ```

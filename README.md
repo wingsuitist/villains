@@ -7,6 +7,8 @@ Live demo of the villains application: https://wingsuitist.github.io/villains/
 
 We listed `cd src/app` in our shell snippets for you to make sure, that you are in the app folder.
 
+[!villains logo](https://raw.githubusercontent.com/wingsuitist/villains/master/src/assets/villain.png)
+
 <!-- TOC depthFrom:1 depthTo:6 withLinks:1 updateOnSave:1 orderedList:0 -->
 
 - [Villains](#villains)

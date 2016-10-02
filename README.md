@@ -890,6 +890,7 @@ The router is also able to use parameters to enable linking directly to a record
 
 `villain/23`
 
+In our example we want to link to the `VillainListComponent` which then selects and shows the villain with the provided id.
 
 ----
 

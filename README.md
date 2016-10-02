@@ -51,7 +51,11 @@ We listed `cd src/app` in our shell snippets for you to make sure, that you are 
 		- [10.3. create getRandomVillain() (optimize)](#103-create-getrandomvillain-optimize)
 		- [10.4. Select the matching Villain](#104-select-the-matching-villain)
 	- [11. Parameterized route](#11-parameterized-route)
-	- [11.x. Go back](#11x-go-back)
+		- [11.2. Add the route](#112-add-the-route)
+		- [11.3. Get villain by id](#113-get-villain-by-id)
+		- [11.4. Use the id parameter](#114-use-the-id-parameter)
+		- [11.4. Linking to a the villains](#114-linking-to-a-the-villains)
+		- [11.5. Using routes in functions](#115-using-routes-in-functions)
 		- [x.x Pipes](#xx-pipes)
 
 <!-- /TOC -->

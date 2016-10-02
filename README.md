@@ -998,6 +998,9 @@ a {
 Defining the style of the `<a>` tag seams strange, as we don't want to change the looks globally. But thanks to Angular the css styles of our component only apply to the template of this component. This makes sure that we are not interfering with any other elements and improves modularity for reuse in other applications.
 
 
+### 11.5. Using routes in functions
+
+We can also call routes from within our components. One simple example is to provide a back link, which basically calls the regular browser back link:
 
 ```typescript
 goBack(): void {
@@ -1008,6 +1011,28 @@ goBack(): void {
 ```html
 <button (click)="goBack()">Back</button>
 ```
+
+Another example is to actually call a specific route from within a components class:
+
+```typescript
+gotoVillain(villain: Villain): void {
+  let link = ['/villain', villain.id];
+  this.router.navigate(link);
+}
+```
+
+To do this you need to inject the router into your component class:
+
+
+```typescript
+import { Router } from '@angular/router';
+//...
+constructor(
+  private router: Router,
+//...
+```
+
+----
 
 ### x.x Pipes
 

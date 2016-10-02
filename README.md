@@ -953,6 +953,51 @@ ngOnInit(): void {
 As we use the existing `villain` property of our `VillainListComponent` it will work out of the box. Now it's already possible to call the URL using in example `http://localhost:4200/villain/23`.
 
 
+### 11.4. Linking to a the villains
+
+Now we can make use of this and link to the villains. For example we could enable the user to open a villain directly from the power component in `owers.component.html`:
+
+```html
+<li *ngFor="let villain of villains">
+  <a (click)="chooseVillain(villain)">
+    {{villain.alias}}
+  </a>
+  (<a target="_blank" routerLink="/villain/{{villain.id}}">peak</a>)
+</li>
+```
+
+This would enable the player to peak into the villain in a new window. Thanks to the `routerLink` attribute, we can directly link to the matching villain.
+
+But we could also change our list to use links instead of the internal `onSelect()` function. For that we remove the `(click)` event from the list element and instead add proper `<a>` link tags:
+
+```html
+<ul class="thisVillain">
+  <li *ngFor="let thisVillain of villains"
+    [class.selected]="thisVillain === villain">
+    <a routerLink="/villain/{{thisVillain.id}}">
+      {{thisVillain.alias}}
+      <span class="power">({{thisVillain.power}})</span>
+    </a>
+  </li>
+</ul>
+```
+
+This allows us to remove the `onSelect` function in `villain-list.component.ts`.
+
+And to improve the look at least a little bit we can add this to our `villain-list.component.css`:
+
+```css
+a {
+  text-decoration: none;
+}
+.selected a {
+  text-decoration: underline;
+}
+```
+
+Defining the style of the `<a>` tag seams strange, as we don't want to change the looks globally. But thanks to Angular the css styles of our component only apply to the template of this component. This makes sure that we are not interfering with any other elements and improves modularity for reuse in other applications.
+
+
 
 ```typescript
 goBack(): void {

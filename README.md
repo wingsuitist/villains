@@ -837,8 +837,25 @@ export class PowersComponent implements OnInit {
 
 ## 11. Parameterized route
 
-The router is also able to use parameters so a url like this is possible:
+The router is also able to use parameters to enable linking directly to a record:
 
 `villain/23`
 
-... Todo: Explain parameters
+
+----
+
+## 11.x. Go back
+
+```typescript
+goBack(): void {
+  this.location.back();
+}
+```
+
+```html
+<button (click)="goBack()">Back</button>
+```
+
+### x.x Pipes
+
+| uppercase

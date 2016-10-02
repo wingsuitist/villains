@@ -892,9 +892,67 @@ The router is also able to use parameters to enable linking directly to a record
 
 In our example we want to link to the `VillainListComponent` which then selects and shows the villain with the provided id.
 
-----
 
-## 11.x. Go back
+### 11.2. Add the route
+
+To enable the route we only have to add it tou our `app.rougint.ts`:
+
+```typescript
+  {
+    path: 'villain/:id',
+    component: VillainListComponent
+  },
+```
+
+This only maps this route to the `VillainListComponent`. We can already call it now, but it won't make any use of the `id` parameter.
+
+### 11.3. Get villain by id
+
+Before we want to use the id, we need a possibility to get the villain by id. This is a task that belongs to the `villain.service.ts`:
+
+```typescript  
+  getVillain(id: number): Villain {
+    let villains = this.getVillains();
+    return villains.find(villain => villain.id === id);
+  }
+```
+
+
+### 11.4. Use the id parameter
+
+To use the `id` parameter we need to get in the `VillainListComponent` using the router in `villain-list.component.ts`:
+
+```typescript
+//...
+import { ActivatedRoute, Params } from '@angular/router';
+import { Location } from '@angular/common';
+
+//...
+export class VillainListComponent implements OnInit {
+//...
+  constructor(
+    private villainService: VillainService,
+    private route: ActivatedRoute,
+    private location: Location) {}
+//...
+```
+
+And next we get the matching villain on initialization if we got an id by the `ActivatedRoute` object:
+
+```typescript
+ngOnInit(): void {
+  this.villains = this.villainService.getVillains();
+
+  this.route.params.forEach((params: Params) => {
+    let id = +params['id'];
+    this.villain = this.villainService.getVillain(id);
+  });
+}
+```
+
+As we use the existing `villain` property of our `VillainListComponent` it will work out of the box. Now it's already possible to call the URL using in example `http://localhost:4200/villain/23`.
+
+
 
 ```typescript
 goBack(): void {

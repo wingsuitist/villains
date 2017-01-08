@@ -8,57 +8,61 @@ Live demo of the villains application: https://wingsuitist.github.io/villains/
 We listed `cd src/app` in our shell snippets for you to make sure, that you are in the app folder, check where you are before you execute a command.
 
 ![villains logo](https://raw.githubusercontent.com/wingsuitist/villains/master/src/assets/villain.png)
-
-<!-- TOC depthFrom:1 depthTo:6 withLinks:1 updateOnSave:1 orderedList:0 -->
+<!-- TOC -->
 
 - [Villains](#villains)
-	- [General](#general)
-	- [1. Install node and angular-cli](#1-install-node-and-angular-cli)
-	- [2. Generate the base for our app](#2-generate-the-base-for-our-app)
-		- [2.1. create villains app:](#21-create-villains-app)
-		- [2.2. run and look at your app](#22-run-and-look-at-your-app)
-		- [2.3. testing is important](#23-testing-is-important)
-	- [3. Let's create our first villain](#3-lets-create-our-first-villain)
-		- [3.1. Let's create the Villain class](#31-lets-create-the-villain-class)
-		- [3.2. Make it available to your component](#32-make-it-available-to-your-component)
-		- [3.3. Create the first villain](#33-create-the-first-villain)
-		- [3.4. Show the villain in your HTML](#34-show-the-villain-in-your-html)
-		- [3.5. Add tests to your .specs.ts](#35-add-tests-to-your-specsts)
-	- [4. Let's edit our Villain](#4-lets-edit-our-villain)
-		- [4.1. Add inputs](#41-add-inputs)
-		- [4.2. Test the inputs](#42-test-the-inputs)
-	- [5. Call in the Villains](#5-call-in-the-villains)
-		- [5.1. We need data](#51-we-need-data)
-		- [5.3. Let's display the Villains](#53-lets-display-the-villains)
-		- [5.4. Show the selected Villain](#54-show-the-selected-villain)
-		- [5.5. A little bit of style](#55-a-little-bit-of-style)
-	- [6. Let's deploy to gitlab pages.](#6-lets-deploy-to-gitlab-pages)
-	- [7. Components](#7-components)
-		- [7.1. Generate Edit Component](#71-generate-edit-component)
-		- [7.2. Naming Conventions](#72-naming-conventions)
-		- [7.3. Prepare for Input](#73-prepare-for-input)
-		- [7.4. Move the edit form](#74-move-the-edit-form)
-	- [8. Services](#8-services)
-		- [8.1. Create and inject Service class](#81-create-and-inject-service-class)
-		- [8.2. Let's get some Villains](#82-lets-get-some-villains)
-	- [9. Routing](#9-routing)
-		- [9.1 Separate List view](#91-separate-list-view)
-		- [9.2 Basic Routing](#92-basic-routing)
-		- [9.3 The navigation](#93-the-navigation)
-		- [9.3 Add and route the powers component](#93-add-and-route-the-powers-component)
-		- [9.4 Redirects](#94-redirects)
-	- [10. Learning the Power](#10-learning-the-power)
-		- [10.1. Show random power](#101-show-random-power)
-		- [10.2. Share the Villain Service (optimize)](#102-share-the-villain-service-optimize)
-		- [10.3. create getRandomVillain() (optimize)](#103-create-getrandomvillain-optimize)
-		- [10.4. Select the matching Villain](#104-select-the-matching-villain)
-	- [11. Parameterized route](#11-parameterized-route)
-		- [11.2. Add the route](#112-add-the-route)
-		- [11.3. Get villain by id](#113-get-villain-by-id)
-		- [11.4. Use the id parameter](#114-use-the-id-parameter)
-		- [11.4. Linking to a the villains](#114-linking-to-a-the-villains)
-		- [11.5. Using routes in functions](#115-using-routes-in-functions)
-		- [x.x Pipes](#xx-pipes)
+  - [General](#general)
+  - [1. Install node and angular-cli](#1-install-node-and-angular-cli)
+  - [2. Generate the base for our app](#2-generate-the-base-for-our-app)
+    - [2.1. create villains app:](#21-create-villains-app)
+    - [2.2. run and look at your app](#22-run-and-look-at-your-app)
+    - [2.3. testing is important](#23-testing-is-important)
+  - [3. Let's create our first villain](#3-lets-create-our-first-villain)
+    - [3.1. Let's create the Villain class](#31-lets-create-the-villain-class)
+    - [3.2. Make it available to your component](#32-make-it-available-to-your-component)
+    - [3.3. Create the first villain](#33-create-the-first-villain)
+    - [3.4. Show the villain in your HTML](#34-show-the-villain-in-your-html)
+    - [3.5. Add tests to your .specs.ts](#35-add-tests-to-your-specsts)
+  - [4. Let's edit our Villain](#4-lets-edit-our-villain)
+    - [4.1. Add inputs](#41-add-inputs)
+    - [4.2. Test the inputs](#42-test-the-inputs)
+  - [5. Call in the Villains](#5-call-in-the-villains)
+    - [5.1. We need data](#51-we-need-data)
+    - [5.3. Let's display the Villains](#53-lets-display-the-villains)
+    - [5.4. Show the selected Villain](#54-show-the-selected-villain)
+    - [5.5. A little bit of style](#55-a-little-bit-of-style)
+  - [6. Let's deploy to gitlab pages.](#6-lets-deploy-to-gitlab-pages)
+  - [7. Components](#7-components)
+    - [7.1. Generate Edit Component](#71-generate-edit-component)
+    - [7.2. Naming Conventions](#72-naming-conventions)
+    - [7.3. Prepare for Input](#73-prepare-for-input)
+    - [7.4. Move the edit form](#74-move-the-edit-form)
+  - [8. Services](#8-services)
+    - [8.1. Create and inject Service class](#81-create-and-inject-service-class)
+    - [8.2. Let's get some Villains](#82-lets-get-some-villains)
+  - [9. Routing](#9-routing)
+    - [9.1 Separate List view](#91-separate-list-view)
+    - [9.2 Basic Routing](#92-basic-routing)
+    - [9.3 The navigation](#93-the-navigation)
+    - [9.3 Add and route the powers component](#93-add-and-route-the-powers-component)
+    - [9.4 Redirects](#94-redirects)
+  - [10. Learning the Power](#10-learning-the-power)
+    - [10.1. Show random power](#101-show-random-power)
+    - [10.2. Share the Villain Service (optimize)](#102-share-the-villain-service-optimize)
+    - [10.3. create getRandomVillain() (optimize)](#103-create-getrandomvillain-optimize)
+    - [10.4. Select the matching Villain](#104-select-the-matching-villain)
+  - [11. Parameterized route](#11-parameterized-route)
+    - [11.2. Add the route](#112-add-the-route)
+    - [11.3. Get villain by id](#113-get-villain-by-id)
+    - [11.4. Use the id parameter](#114-use-the-id-parameter)
+    - [11.4. Linking to a the villains](#114-linking-to-a-the-villains)
+    - [11.5. Using routes in functions](#115-using-routes-in-functions)
+    - [x.x Pipes](#xx-pipes)
+  - [42 Appendix](#42-appendix)
+    - [42.1 Update angular-cli](#421-update-angular-cli)
+      - [42.1.1 Update global angular-cli (ng):](#4211-update-global-angular-cli-ng)
+      - [42.1.2 Update project:](#4212-update-project)
+      - [42.1.3 Update project files:](#4213-update-project-files)
 
 <!-- /TOC -->
 
@@ -1043,3 +1047,50 @@ constructor(
 ### x.x Pipes
 
 | uppercase
+
+
+## 42 Appendix
+
+### 42.1 Update angular-cli
+
+[Update angular-cli official docu](https://github.com/angular/angular-cli#updating-angular-cli)
+
+[Update node.js](https://nodejs.org/en/)
+
+#### 42.1.1 Update global angular-cli (ng):
+
+```bash
+npm uninstall -g angular-cli
+npm cache clean
+npm install -g angular-cli@latest
+```
+
+#### 42.1.2 Update project:
+
+```bash
+cd path-to-your-project
+rm -rf node_modules dist tmp
+npm install --save-dev angular-cli@latest
+npm install
+```
+
+#### 42.1.3 Update project files:
+
+```
+ng init
+```
+
+You'll be asked for each file if you want to update it.
+
+!! Attention: Depending on the version the prefix setting in your angular-cli.json may be dropped, make sure after updating it to add it again. Grep for app-root after the update and change it back. !!
+
+Commands:
+
+* y - overwrite
+* d - show diff of changes !! use this for every file in src/app !!
+* n - don't overwrite
+* h - help
+
+_Tip: You most probably don't not want to update README.md cause it should contain the description of your project_
+_Tip: You most probably don't want to overwrite any app/src/ files without a close look on "diff"_
+_Tip: If you use git and visual studio code, you can easily go through the changes after the update and revert single bits as you need._
